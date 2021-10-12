@@ -1,0 +1,22 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="hta_hr_contract_form_inherits">
+      <field name="model">hr.contract</field>
+      <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet/notebook/page[@name='information']" position="after">
+              <page string="Accounting Information" name="accounting">
+                  <group name="account_info" string="Account Info">
+                        <group>
+                            <field name="loan_account" string="Loan Account"/>
+                        </group>
+                        <group>
+                            <field name="advance_account" string="Advance Account"/>
+                        </group>
+                    </group>
+              </page>
+          </xpath>
+        </field>
+    </record>      
+  </data>
+</odoo>
