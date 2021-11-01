@@ -24,7 +24,10 @@ class ProductCategory(models.Model):
     @api.onchange('parent_id')
     def onchange_parent_id(self):
         for category in self:
-            category.related_code = '%s-%s' % (category.parent_id.related_code, category.category_code)
+            if category.parent_id:
+                category.related_code = '%s-%s' % (category.parent_id.related_code, category.category_code)
+            else:
+                category.related_code = str(category.category_code)
         
     @api.onchange('category_code')
     def onchange_category_code(self):
