@@ -2,7 +2,7 @@
 
 from odoo import SUPERUSER_ID, api
 
-def pre_init_hook(cr):
+def post_init_hook(cr, registry):
     """
     This post-init-hook will update all existing category assigning them the
     corresponding default category_code.
