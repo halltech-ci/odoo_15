@@ -40,11 +40,8 @@ class ProductCategory(models.Model):
     def _search_related_field(self, operator, value):
         return [('related_code', operator, value)]
     
+    """
     _sql_constraints = [
         ('related_code_uniq', 'unique(related_code)', "Related_code must be unique !"),
     ]
-    
-    """
-    @api.model
-    def create(self, vals):
-    """    
+    """   
