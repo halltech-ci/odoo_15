@@ -15,7 +15,7 @@ class ProductCategory(models.Model):
     """    
     
     category_code = fields.Char()
-    related_code = fields.Char(string='Related Code', compute = '_compute_related_code', store=True)
+    related_code = fields.Char(string='Related Code', compute = '_compute_related_code', store=True, recursive=True)
     
     @api.depends('parent_id.related_code', 'category_code')
     def _compute_related_code(self):
