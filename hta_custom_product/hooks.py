@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from odoo import SUPERUSER_ID, api
+
 def pre_init_hook(cr):
     """
     This post-init-hook will update all existing category assigning them the
