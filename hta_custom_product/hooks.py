@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-def pre_init_hook(cr, registry):
+def pre_init_hook(cr):
     """
     This post-init-hook will update all existing category assigning them the
     corresponding default category_code.
