@@ -7,9 +7,9 @@ class ProductCategory(models.Model):
     _inherit = "product.category"
     
     def get_default_category_code(self):
-        return self.id.origin
+        return self.env["ir.sequence"].next_by_code("product.category.code")
     
-    category_code = fields.Char(default=get_default_category_code)
+    category_code = fields.Char(index=True, default=get_default_category_code)
     related_code = fields.Char(string='Related Code', compute = '_compute_related_code', recursive=True, store=True, search='_search_related_field',)
     
     @api.depends('parent_id.related_code', 'category_code')

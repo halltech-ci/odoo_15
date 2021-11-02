@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<odoo noupdate="1">
+    <record id="product_category_code_seq" model="ir.sequence">
+        <field name="name">Product category Default Code</field>
+        <field name="code">product.category.code</field>
+        <field name="prefix">Default-</field>
+        <field name="padding">4</field>
+        <field name="company_id" eval="True" />
+    </record>
+</odoo>
