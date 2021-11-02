@@ -26,7 +26,7 @@ class ProductCategory(models.Model):
             if category.parent_id:
                 category.related_code = '%s-%s' % (category.parent_id.related_code, category.category_code)
             else:
-                category.related_code = str(category.category_code)
+                category.related_code = '%s' % (category.category_code)
         
     @api.onchange('category_code')
     def onchange_category_code(self):
@@ -34,11 +34,11 @@ class ProductCategory(models.Model):
             if category.parent_id:
                 category.related_code = '%s-%s' % (category.parent_id.related_code, category.category_code)
             else:
-                category.related_code = str(category.category_code)
+                category.related_code = '%s' % (category.category_code)
             
     def _search_related_field(self, operator, value):
         return [('related_code', operator, value)]
     
-    _sql_constraints = [
+    """_sql_constraints = [
         ('related_code_uniq', 'unique(related_code)', "Related_code must be unique !"),
-    ]
+    ]"""
