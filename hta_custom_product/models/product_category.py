@@ -6,11 +6,10 @@ from odoo import models, fields, api, _
 class ProductCategory(models.Model):
     _inherit = "product.category"
     
-    """def get_default_category_code(self):
-        last_id = self.env['product.category'].search([('id', '!=', False)], limit=1, order='id desc').ids[0]
-        return str(last_id + 1)
-    """
-    category_code = fields.Char()
+    def get_default_category_code(self):
+        return self.id.origin
+    
+    category_code = fields.Char(default=get_default_category_code)
     related_code = fields.Char(string='Related Code', compute = '_compute_related_code', recursive=True, store=True, search='_search_related_field',)
     
     @api.depends('parent_id.related_code', 'category_code')
