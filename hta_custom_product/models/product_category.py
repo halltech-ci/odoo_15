@@ -6,7 +6,7 @@ from odoo import models, fields, api, _
 class ProductCategory(models.Model):
     _inherit = "product.category"
     
-    def get_default_category_code(self):
+    def _get_default_category_code(self):
         return self.env["ir.sequence"].next_by_code("product.category.code")
     
     category_code = fields.Char(index=True, default=get_default_category_code)
@@ -39,6 +39,6 @@ class ProductCategory(models.Model):
     def _search_related_field(self, operator, value):
         return [('related_code', operator, value)]
     
-    """_sql_constraints = [
+    _sql_constraints = [
         ('related_code_uniq', 'unique(related_code)', "Related_code must be unique !"),
-    ]"""
+    ]
