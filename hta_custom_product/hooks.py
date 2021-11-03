@@ -25,5 +25,6 @@ def post_init_product_category_code(cr, registry):
         cr.execute(
             "UPDATE product_category " "SET category_code = %s " "WHERE id = %s;",
             (sequence_obj.next_by_code("product.category.code"), category_id),
-        )"""
+        )
+"""
         
