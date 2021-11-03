@@ -16,7 +16,7 @@ class ProductCategory(models.Model):
     def _compute_related_code(self):
         for category in self:
             if category.parent_id:
-                category.related_code = '%s-%s' % (category.parent_id.related_code, category.category_code)
+                category.related_code = '%s%s' % (category.parent_id.related_code, category.category_code)
             else:
                 category.related_code = '%s' %(category.category_code)
     
@@ -24,7 +24,7 @@ class ProductCategory(models.Model):
     def onchange_parent_id(self):
         for category in self:
             if category.parent_id:
-                category.related_code = '%s-%s' % (category.parent_id.related_code, category.category_code)
+                category.related_code = '%s%s' % (category.parent_id.related_code, category.category_code)
             else:
                 category.related_code = '%s' % (category.category_code)
         
@@ -32,7 +32,7 @@ class ProductCategory(models.Model):
     def onchange_category_code(self):
         for category in self:
             if category.parent_id:
-                category.related_code = '%s-%s' % (category.parent_id.related_code, category.category_code)
+                category.related_code = '%s%s' % (category.parent_id.related_code, category.category_code)
             else:
                 category.related_code = '%s' % (category.category_code)
             

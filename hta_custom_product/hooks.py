@@ -11,6 +11,7 @@ def pre_init_product_category_code(cr):
     cr.execute("ALTER TABLE product_category " "ADD COLUMN category_code character varying;")
     cr.execute("UPDATE product_category " "SET category_code = id;")
     
+"""
 def post_init_product_category_code(cr, registry):
     """
     This post-init-hook will update all existing task assigning them the
@@ -24,4 +25,5 @@ def post_init_product_category_code(cr, registry):
         cr.execute(
             "UPDATE product_category " "SET category_code = %s " "WHERE id = %s;",
             (sequence_obj.next_by_code("product.category.code"), category_id),
-        )
+        )"""
+        
