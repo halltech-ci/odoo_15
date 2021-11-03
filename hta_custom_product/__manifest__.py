@@ -29,6 +29,8 @@
         'views/views.xml',
         'views/templates.xml',
         'views/product_category_views.xml',
+        #data
+        'data/product_category_code_seq.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
@@ -36,5 +38,7 @@
     ],
     'license': 'LGPL-3',
     
-    #"post_init_hook": "post_init_hook",
+    "installable": True,
+    "pre_init_hook": "pre_init_product_category_code",
+    #"post_init_hook": "post_init_product_category_code",
 }
